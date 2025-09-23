@@ -1,14 +1,22 @@
-name: Laravel CI/CD
+name: Simple HTML CI/CD
 
 on:
   push:
     branches:
-      - main   # শুধু main branch-এ push হলেই run হবে
+      - main   
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout Repository
         uses: actions/checkout@v3
+
+      - name: Deploy to cPanel Subdomain via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.0
+        with:
+          server: ${{ secrets.SERVER }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          server-dir: /portfolio
