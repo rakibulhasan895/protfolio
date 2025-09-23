@@ -19,4 +19,4 @@ jobs:
           server: ${{ secrets.SERVER }}
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
-          server-dir: /portfolio
+          server-dir: /portfolio/
