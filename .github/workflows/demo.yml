@@ -1,0 +1,14 @@
+name: Laravel CI/CD
+
+on:
+  push:
+    branches:
+      - main   # শুধু main branch-এ push হলেই run হবে
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
